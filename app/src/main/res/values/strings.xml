@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QR Read/Generate</string>
+    <string name="startCamera">start camera</string>
+    <string name="readClipboard">read clipboard</string>
+</resources>
