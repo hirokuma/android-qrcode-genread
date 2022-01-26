@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
 
             val textView = findViewById<TextView>(R.id.textView)
             textView.text = result.contents
+            val imageView = findViewById<ImageView>(R.id.imageView) as ImageView
+            imageView.setImageResource(android.R.drawable.ic_menu_camera)
 
             Toast.makeText(this, "copy text to clipboard!", Toast.LENGTH_LONG).show()
         } else {
