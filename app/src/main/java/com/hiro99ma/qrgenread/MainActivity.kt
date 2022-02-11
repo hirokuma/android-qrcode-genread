@@ -7,12 +7,14 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Point
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
@@ -33,9 +35,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val wm = getSystemService(WINDOW_SERVICE) as WindowManager
-        val realSize = Point()
-        wm.defaultDisplay.getRealSize(realSize)
-        screenWidth = realSize.x
+        screenWidth = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            wm.currentWindowMetrics.bounds.width()
+        } else {
+            val realSize = Point()
+            wm.defaultDisplay.getRealSize(realSize)
+            realSize.x
+        }
     }
 
     // Register the launcher and result handler
@@ -59,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun onClickStartCamera(view: View) {
+    fun onClickStartCamera(@Suppress("UNUSED_PARAMETER") view: View) {
         // https://qiita.com/tktktks10/items/3b327b2900d38e672996
         val options = ScanOptions().apply {
             captureActivity = MyCaptureActivity::class.java
@@ -67,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         barcodeLauncher.launch(options)
     }
 
-    fun onClickReadClipboard(view: View) {
+    fun onClickReadClipboard(@Suppress("UNUSED_PARAMETER") view: View) {
         // https://developer.android.com/guide/topics/text/copy-paste#Pasting
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         if (clipboard.hasPrimaryClip() && clipboard.primaryClipDescription!!.hasMimeType(

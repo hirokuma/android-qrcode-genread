@@ -9,13 +9,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/readClipboard"
+            android:contentDescription="@string/qrcode"
             app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
             tools:ignore="ImageContrastCheck" />
 
@@ -29,28 +30,35 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonReadClipboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_weight="1"
+            android:background="@color/purple_700"
+            android:contentDescription="@string/paste"
+            android:minHeight="48dp"
             android:onClick="onClickReadClipboard"
-            android:text="@string/readClipboard" />
+            app:srcCompat="?attr/actionModePasteDrawable" />
 
         <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_width="32dp"
+            android:layout_height="match_parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonStartCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_dark"
+            android:contentDescription="@string/startCamera"
             android:onClick="onClickStartCamera"
-            android:text="@string/startCamera" />
+            app:srcCompat="@android:drawable/ic_menu_camera" />
 
         <Space
             android:layout_width="match_parent"
