@@ -14,7 +14,6 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
             val textView = findViewById<TextView>(R.id.textView)
             textView.text = result.contents
-            val imageView = findViewById<ImageView>(R.id.imageView) as ImageView
+            val imageView = findViewById<ImageView>(R.id.imageView)
             imageView.setImageResource(android.R.drawable.ic_menu_camera)
 
             Toast.makeText(this, "copy text to clipboard!", Toast.LENGTH_LONG).show()
@@ -98,7 +97,7 @@ class MainActivity : AppCompatActivity() {
                     bmp.setPixel(x, y, if (matrix.get(x, y)) Color.BLACK else Color.WHITE)
                 }
             }
-            val imageView = findViewById<ImageView>(R.id.imageView) as ImageView
+            val imageView = findViewById<ImageView>(R.id.imageView)
             imageView.setImageBitmap(bmp)
         }
     }
