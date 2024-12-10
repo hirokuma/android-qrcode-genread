@@ -44,6 +44,7 @@
             android:contentDescription="@string/paste"
             android:minHeight="48dp"
             android:onClick="onClickReadClipboard"
+            android:scaleType="fitCenter"
             app:srcCompat="?attr/actionModePasteDrawable" />
 
         <Space
@@ -58,6 +59,7 @@
             android:background="@android:color/holo_orange_dark"
             android:contentDescription="@string/startCamera"
             android:onClick="onClickStartCamera"
+            android:scaleType="fitCenter"
             app:srcCompat="@android:drawable/ic_menu_camera" />
 
         <Space

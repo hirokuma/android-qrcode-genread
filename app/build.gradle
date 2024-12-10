@@ -10,8 +10,8 @@ android {
         applicationId "com.hiro99ma.qrgenread"
         minSdk 24
         targetSdk 34
-        versionCode 7
-        versionName '1.6'
+        versionCode 8
+        versionName '1.7'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,7 +30,6 @@ android {
         jvmTarget = '1.8'
     }
     namespace 'com.hiro99ma.qrgenread'
-    buildToolsVersion '34.0.0'
 }
 
 dependencies {
